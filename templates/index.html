@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learner's Dashboard</title>
+<!--<link rel="stylesheet" href="/home/shikha/Desktop/flask dashboard/static/styles.css">-->
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+
+
+<body>
+ 
+  
+
+<div class="header">
+    
+   <!--<div class="logo">Analytics Vidhya</div>-->   
+
+   
+
+
+
+        <div class="header-top">
+            <div class="top-left">
+                <img src="{{ url_for('static', filename='Image/AV.png') }}" ,alt="Logo AV " style="width: 100px; height: auto;" >
+                </div>
+            <div class="title">LEARNER'S DASHBOARD</div>
+            <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+          <!--- <button class="logout">Log Out</button>  -->
+          <button class="logout">Log Out</button>
+
+        </div>
+
+
+        <div class="user-name">Welcome, {{ user_email }}
+            <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+</div>
+
+    </div>
+
+<!--
+<div class="content">
+    <div class="info">
+        <div class="info-item">
+            <div class="info-title">Last Mentorship Date</div>
+            <div class="info-value" id="mentorshipDate">20 April 2023</div>
+        </div>
+        <div class="info-item">
+            <div class="info-title">Bundle Name/Blackbelt Program</div>
+            <div class="info-value" id="bundleName">Activation Date: 01 January 2023</div>
+        </div>
+        <div class="info-item">
+            <div class="info-title">Expiry Date</div>
+            <div class="info-value" id="expiryDate">31 December 2025</div>
+        </div>
+        <div class="info-item">
+            <div class="info-title">Last Sign-In Courses</div>
+            <div class="info-value" id="lastSignIn">22 April 2023</div>
+        </div>
+    </div>
+</div>
+
+-->
+
+
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<!--
+<div class = tablechart-class>
+
+    <div class="table-scroll">
+        <h1>Table</h1>
+        {% for table in tables %}
+        <h2>{{titles[loop.index]}}</h2>
+        {{ table|safe }}
+        {% endfor %}
+    </div>
+
+    <div class="chart-container">
+        <div id="chart"></div>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script>
+          var graphJSON = {{ graphJSON|safe }};
+          Plotly.newPlot('chart', graphJSON);
+        </script>
+
+
+</div>
+
+
+<div>
+<marquee style="background-color: BLUE; ">JAAT RAJ</marquee>
+
+</div> 
+-->
+
+<div class ='student-status'>
+
+    <div class="bar1">
+        Last Mentorship Date
+        <div>
+            {{ Last_men_date }}
+        </div>
+        <div>
+            {{ topic_men }}
+        </div>
+
+    </div>
+
+    <div class="bar2"> 
+        <div>
+            Program name,{{Bundle}}
+        </div>
+        <div>
+            Activation Date , {{Activate_date}}
+        </div>
+        <div>
+            Expiry Date , {{Expiry_date}}
+        </div>
+
+
+    </div>
+
+    <div class="bar3">
+        Last Sign in 
+        <div>
+            last sign in date : , {{Last_login}}
+        </div>
+        <div>
+            Updated on , {{update_on}}
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class ='progress-bar'> PROGRESS SUMMARY</div>
+<!--
+<div class = "tablechart-class">
+    <div class="table-scroll">
+        {% for table in tables %}
+        
+        {{ table|safe }}
+        {% endfor %}
+    </div>
+    <div class="chart-scroll">
+      <div id="chart"></div>
+    </div>
+  </div>-->
+  
+  <div id="plotly-table-1"></div> <!-- Container for the first Plotly table 
+
+
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    var graphData = {{ graphJSON | safe }};
+    Plotly.newPlot('chart', graphData[0].data, graphData[0].layout);
+  </script>
+
+<div class ='mentor-bar'> MENTORSHIP SUMMARY</div>
+<div>
+    <div id="plotly-table-2"></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+      var graphData = {{ graphJSON | safe }};
+      Plotly.newPlot('chart', graphData[1].data, graphData[1].layout);
+    </script>
+  
+</div>-->
+
+
+<!--<div class="chart-scroll">-->
+    <div id="chart1"></div> <!-- Updated ID for the first chart -->
+  </div>
+  
+  <div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+      var graphData = {{ graphJSON | safe }};
+      Plotly.newPlot('chart1', graphData[1].data, graphData[1].layout); // Updated to 'chart1'
+    </script>
+  </div>
+  
+  <div style="background-color: black; color: antiquewhite; text-align: center; font-weight: bold;">
+    <P>PROGRESS LINE CHART</P></div>
+  <div id="chart2-container" class="chart-scroll"> <!-- Added a unique ID for the container -->
+    <div id="chart2"></div> <!-- Updated ID for the second chart -->
+  </div>
+  
+  <div>
+    <script>
+      Plotly.newPlot('chart2', graphData[0].data, graphData[0].layout); // Updated to 'chart2'
+    </script>
+  </div>
+  <div class='mentor-bar'> MENTORSHIP SUMMARY</div>
+  <div>
+    <h3> END OF THE PAGE </h3>
+
+  </div>
+  
+
+
+</body>
+</html>
